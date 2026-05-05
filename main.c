@@ -13,15 +13,34 @@ float custo_total;
 int sessao_iniciada = 0;
 int sessao_calculada = 0;
 
+void inserir_usuario(){
+    printf("\nNome do motorista: ");
+    scanf(" %[^\n]", nome);
+
+    printf("Placa do viculo: ");
+    scanf("%s", placa);
+
+    printf("Tipos de usuario\n1 - Visitante\n2 - Mensalista\n3 - Premium\nDitige: ");
+    scanf("%d", &tipo_usuario);
+
+    if (tipo_usuario < 1 || tipo_usuario > 3){
+        printf("Tipo usuario invalido!\nDefinido como Visitante\n");
+        tipo_usuario = 1;
+    }
+
+    sessao_iniciada = 1;
+    printf("Dados inseridos com sucesso!\n");
+}
+
 int main() {
     int opcao;
 
-    printf("\n========================= \n");
-    printf("= SISTEMA SPRINT 1 =\n");
+    printf("=========================\n");
+    printf("===  SISTEMA SPRINT   ===\n");
     printf("=========================\n");
 
     while(opcao != 5){
-        printf("1 - INSERIR INFORMACOES DO USUARIO\n2 - INSERIR INFORMACOES DO CARRO\n3 - CALCULA SESSAO\n4 - EXIBE RESULTADO\n5 - SAIR\nDigite a opcao desejada: ");
+        printf("\n1 - INSERIR INFORMACOES DO USUARIO\n2 - INSERIR INFORMACOES DO CARRO\n3 - CALCULA SESSAO\n4 - EXIBE RESULTADO\n5 - SAIR\n\nDigite a opcao desejada: ");
 
         if (scanf("%d", &opcao) != 1){
             printf("OPCAO INVALIDA\n");
@@ -31,7 +50,8 @@ int main() {
         }
 
         switch(opcao){
-            case 1: //Adiciona informacoes sobre usuario
+            case 1: 
+                inserir_usuario();
                 break;
             case 2: //Adiciona informacoes sobre o carro
                 break;
